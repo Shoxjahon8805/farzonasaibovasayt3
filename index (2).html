@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tulip Garden: Spring's Brightest Flowers</title>
+<meta name="description" content="A fun website for 5th graders about tulips: their history, parts of the flower, how they grow, colors, and a quick quiz.">
+<meta property="og:title" content="Tulip Garden: Spring's Brightest Flowers">
+<meta property="og:description" content="Discover the story of tulips, how they grow from bulbs, and test yourself with a quiz.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fff7ee;--red:#e0245e;--yellow:#ffc933;--purple:#7a3b9c;--green:#3f9a54;--ink:#35203f;--pink:#ffb3cf}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Nunito',system-ui,sans-serif;font-size:18px;line-height:1.6}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.1;margin:0 0 .5em}
+.hero{background:linear-gradient(#cfeaff,#fff0f6);text-align:center;padding:3rem 1.2rem 0;overflow:hidden}
+.hero h1{font-size:clamp(2.6rem,9vw,5.5rem);font-weight:800;color:var(--red)}
+.hero p{max-width:34rem;margin:0 auto 1.4rem;font-size:1.2rem}
+.row{display:flex;justify-content:center;align-items:flex-end;gap:4px;max-width:520px;margin:0 auto}
+.t{flex:1;max-width:120px;transform-origin:50% 100%;animation:sway 3.4s ease-in-out infinite}
+.t:nth-child(2){animation-delay:-.8s;margin-bottom:-6px}
+.t:nth-child(3){animation-delay:-1.6s}
+.t:nth-child(4){animation-delay:-2.4s;margin-bottom:-6px}
+.t:nth-child(5){animation-delay:-3s}
+@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@media (prefers-reduced-motion:reduce){.t{animation:none}}
+.grass{height:34px;background:var(--green)}
+.btn{display:inline-block;background:var(--purple);color:#fff;font-family:'Fraunces',serif;font-weight:800;font-size:1.1rem;padding:.65rem 1.6rem;border-radius:999px;text-decoration:none;border:0;cursor:pointer;margin-bottom:1.5rem}
+.btn:focus-visible,.opt:focus-visible{outline:3px solid #1b6fd1;outline-offset:3px}
+main{max-width:960px;margin:0 auto;padding:2.5rem 1.2rem}
+section{margin-bottom:3.5rem}
+h2{font-size:2.1rem;color:var(--purple)}
+.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.big div{background:var(--yellow);border-radius:50% 50% 24px 24px / 30% 30% 24px 24px;padding:1.4rem 1.2rem;text-align:center}
+.big b{font-family:'Fraunces',serif;font-size:2.3rem;color:var(--red);display:block;line-height:1.1}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
+.card{background:#fff;border-radius:22px;padding:1.3rem;border-top:8px solid var(--pink);box-shadow:0 2px 0 #f0dcea}
+.card:nth-child(2n){border-top-color:var(--yellow)}
+.card:nth-child(3n){border-top-color:var(--green)}
+.card h3{font-size:1.35rem;color:var(--red)}
+.steps{counter-reset:s;display:grid;gap:.8rem;padding:0;list-style:none;margin:0}
+.steps li{counter-increment:s;background:#fff;border-radius:18px;padding:1rem 1rem 1rem 4rem;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:1rem;top:.8rem;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--red);color:#fff;font-family:'Fraunces',serif;font-weight:800;display:grid;place-items:center}
+dl{display:grid;grid-template-columns:auto 1fr;gap:.5rem 1rem;background:#fff;padding:1.2rem;border-radius:20px;margin:0}
+dt{font-family:'Fraunces',serif;font-weight:800;color:var(--red)}
+dd{margin:0}
+.quiz{background:#fff;border-radius:24px;padding:1.5rem;border:3px dashed var(--pink)}
+.opts{display:grid;gap:.6rem;margin:1rem 0}
+.opt{font:inherit;color:inherit;text-align:left;background:var(--cream);border:2px solid var(--pink);border-radius:14px;padding:.7rem 1rem;cursor:pointer}
+.opt.right{background:#b8e3a8;border-color:var(--green)}
+.opt.wrong{background:#f8b9b9;border-color:#c0392b}
+#fb{min-height:1.6em;font-weight:700}
+footer{background:var(--purple);color:#fff;text-align:center;padding:2rem 1rem}
+@media (prefers-color-scheme:dark){:root{--cream:#241530;--ink:#f6e8ff}.card,.steps li,dl,.quiz{background:#38214a}.opt{background:#241530}.big div{color:#35203f}.hero{background:linear-gradient(#2a3b6e,#5a2a5e);color:#fff}.hero p{color:#fff}h2{color:#e9b6ff}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>Tulip Garden</h1>
+  <p>Tulips are the first big splash of color each spring. Learn where they come from and how a tiny bulb becomes a flower.</p>
+  <a class="btn" href="#quiz">Take the quiz</a>
+  <div class="row" aria-label="Five cartoon tulips in red, yellow, pink and purple">
+    <svg class="t" viewBox="0 0 60 150"><path d="M30 60V148" stroke="#3f9a54" stroke-width="5"/><path d="M30 120c-18-4-22-20-20-30c12 2 18 14 20 30z" fill="#3f9a54"/><path d="M10 20c0 30 8 46 20 46s20-16 20-46l-10 12-10-18-10 18z" fill="#e0245e"/></svg>
+    <svg class="t" viewBox="0 0 60 150"><path d="M30 60V148" stroke="#3f9a54" stroke-width="5"/><path d="M30 120c18-4 22-20 20-30c-12 2-18 14-20 30z" fill="#3f9a54"/><path d="M10 20c0 30 8 46 20 46s20-16 20-46l-10 12-10-18-10 18z" fill="#ffc933"/></svg>
+    <svg class="t" viewBox="0 0 60 150"><path d="M30 60V148" stroke="#3f9a54" stroke-width="5"/><path d="M30 125c-18-4-22-20-20-30c12 2 18 14 20 30z" fill="#3f9a54"/><path d="M10 20c0 30 8 46 20 46s20-16 20-46l-10 12-10-18-10 18z" fill="#ff7aa8"/></svg>
+    <svg class="t" viewBox="0 0 60 150"><path d="M30 60V148" stroke="#3f9a54" stroke-width="5"/><path d="M30 120c18-4 22-20 20-30c-12 2-18 14-20 30z" fill="#3f9a54"/><path d="M10 20c0 30 8 46 20 46s20-16 20-46l-10 12-10-18-10 18z" fill="#7a3b9c"/></svg>
+    <svg class="t" viewBox="0 0 60 150"><path d="M30 60V148" stroke="#3f9a54" stroke-width="5"/><path d="M30 125c-18-4-22-20-20-30c12 2 18 14 20 30z" fill="#3f9a54"/><path d="M10 20c0 30 8 46 20 46s20-16 20-46l-10 12-10-18-10 18z" fill="#ff8a3d"/></svg>
+  </div>
+</header>
+<div class="grass"></div>
+
+<main>
+<section>
+  <h2>Tulip fast facts</h2>
+  <div class="big">
+    <div><b>75+</b>Wild kinds of tulips</div>
+    <div><b>1600s</b>The "Tulip Mania" in the Netherlands</div>
+    <div><b>Spring</b>When tulips bloom</div>
+    <div><b>Bulb</b>Where a tulip starts</div>
+  </div>
+</section>
+
+<section>
+  <h2>A short tulip story</h2>
+  <div class="grid">
+    <div class="card"><h3>Born in the mountains</h3><p>Wild tulips first grew in the mountains and plains of Central Asia, including areas of Uzbekistan, Kazakhstan and Turkey.</p></div>
+    <div class="card"><h3>Loved by sultans</h3><p>In the Ottoman Empire, tulips were a symbol of beauty and were grown in royal gardens.</p></div>
+    <div class="card"><h3>Famous in Holland</h3><p>Tulips reached the Netherlands in the 1500s. Soon they were so popular that bulbs sold for huge prices. Today the Dutch grow billions of them.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>How a tulip grows</h2>
+  <ol class="steps">
+    <li><b>Plant the bulb in autumn.</b> Put it pointy side up in the soil, about 15 cm deep.</li>
+    <li><b>Rest in the cold.</b> Winter's chill tells the bulb it is time to prepare for spring.</li>
+    <li><b>Shoots appear.</b> When the soil warms, green leaves push up through the ground.</li>
+    <li><b>The flower blooms.</b> A bright cup opens on top of the stem and bees come to visit.</li>
+    <li><b>The bulb recharges.</b> After blooming, leaves feed the bulb so it can flower again next year.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Tulip words</h2>
+  <dl>
+    <dt>Bulb</dt><dd>An underground part that stores food for the plant.</dd>
+    <dt>Petal</dt><dd>One colorful part of a flower.</dd>
+    <dt>Stem</dt><dd>The stalk that holds the flower up.</dd>
+    <dt>Pollen</dt><dd>Yellow dust that helps flowers make seeds.</dd>
+    <dt>Perennial</dt><dd>A plant that comes back year after year.</dd>
+  </dl>
+</section>
+
+<section id="quiz">
+  <h2>Quick quiz</h2>
+  <div class="quiz">
+    <p id="q" style="font-weight:700;font-size:1.25rem"></p>
+    <div class="opts" id="opts"></div>
+    <p id="fb" aria-live="polite"></p>
+    <button class="btn" id="next" style="display:none">Next question</button>
+  </div>
+</section>
+</main>
+
+<footer><p>Made for curious 5th graders. Keep growing and keep learning!</p></footer>
+
+<script>
+var Q=[
+ {q:"What does a tulip grow from?",o:["A seed in the air","A bulb","A pebble"],a:1},
+ {q:"Which country is famous for growing tulips today?",o:["The Netherlands","Egypt","Canada"],a:0},
+ {q:"When do tulips usually bloom?",o:["Spring","Winter","Midnight only"],a:0},
+ {q:"Where did wild tulips first grow?",o:["Central Asia","Antarctica","The ocean"],a:0}
+];
+var i=0,score=0,done=false;
+var q=document.getElementById('q'),opts=document.getElementById('opts'),fb=document.getElementById('fb'),nx=document.getElementById('next');
+function show(){
+  done=false;fb.textContent='';nx.style.display='none';
+  q.textContent=(i+1)+'. '+Q[i].q;opts.innerHTML='';
+  Q[i].o.forEach(function(t,k){
+    var b=document.createElement('button');b.className='opt';b.textContent=t;
+    b.onclick=function(){
+      if(done)return;done=true;
+      if(k===Q[i].a){score++;b.className='opt right';fb.textContent='Correct! Great job!';}
+      else{b.className='opt wrong';opts.children[Q[i].a].className='opt right';fb.textContent='Not quite. The right answer is highlighted.';}
+      nx.style.display='inline-block';nx.textContent=i<Q.length-1?'Next question':'See my score';
+    };
+    opts.appendChild(b);
+  });
+}
+nx.onclick=function(){
+  if(i<Q.length-1){i++;show();}
+  else if(nx.textContent==='See my score'){
+    q.textContent='You got '+score+' out of '+Q.length+'!';opts.innerHTML='';
+    fb.textContent=score===Q.length?'Perfect! You are a tulip expert!':'Nice try! Read the facts again and play once more.';
+    nx.textContent='Play again';
+  } else {i=0;score=0;show();}
+};
+show();
+</script>
+</body>
+</html>
